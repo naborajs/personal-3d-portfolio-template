@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- 
+      ================================================================
+      PROJECT: AUTHORITY NODE TEMPLATE v5.0
+      ORIGINAL ARCHITECT: NABORAJ SARKAR
+      GITHUB: https://github.com/naborajs
+      LICENSE: MIT (Branding remains property of original author)
+      ================================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PRIMARY SEO & IDENTITY -->
+    <title>Naboraj Sarkar | Authority Node</title>
+    <meta name="title" content="Naboraj Sarkar | Official Digital Authority Node">
+    <meta name="description" content="Official personal portal of Naboraj Sarkar. High-performance engineering, systems architecture, and digital branding. Template by Naboraj Sarkar.">
+    <meta name="keywords" content="Naboraj Sarkar, Digital Authority, Systems Architect, India Tech, Web Developer, React Engineer">
+    <meta name="author" content="Naboraj Sarkar">
+    <meta name="theme-color" content="#050505">
+
+    <!-- SOCIAL INDEXING (OPEN GRAPH) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nsgamming.xyz">
+    <meta property="og:title" content="Naboraj Sarkar | Official Node">
+    <meta property="og:description" content="Synthesizing high-performance logic with cinematic digital identity. Template by Naboraj Sarkar.">
+    <meta property="og:image" content="https://github.com/naborajs.png">
+
+    <!-- TWITTER / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://github.com/naborajs.png">
+
+    <!-- ASSETS -->
+    <link rel="icon" type="image/png" href="https://github.com/naborajs.png">
+    <link rel="apple-touch-icon" href="https://github.com/naborajs.png">
+    
+    <!-- ADVANCED GOOGLE SCHEMA (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Naboraj Sarkar",
+      "jobTitle": "Systems Architect",
+      "nationality": "Indian",
+      "url": "https://nsgamming.xyz",
+      "image": "https://github.com/naborajs.png",
+      "description": "Naboraj Sarkar is a technical creator and systems architect specializing in high-fidelity digital solutions."
+    }
+    </script>
+
+    <!-- UI ENGINES -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* BRAND TOKENS - CHANGE THESE TO CUSTOMIZE YOUR ENTIRE SITE */
+            --brand-primary: #00BFA6;
+            --brand-secondary: #7C3AED;
+            --bg-base: #050505;
+            --text-main: #FFFFFF;
+            --text-dim: #94A3B8;
+            --glass-alpha: 0.02;
+            --glass-stroke: rgba(255, 255, 255, 0.08);
+        }
+        
+        * { cursor: crosshair; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ADVANCED GLASSMORPHISM ENGINE */
+        .glass {
+            background: rgba(255, 255, 255, var(--glass-alpha));
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-stroke);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .bg-3d-fluid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, var(--bg-base) 100%);
+        }
+
+        /* DYNAMIC GRADIENT ANIMATIONS */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #2DD4BF 50%, var(--brand-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            animation: flow 10s ease infinite;
+        }
+
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* CUSTOM SCROLL ENGINE */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--brand-primary), var(--brand-secondary));
+            border-radius: 100px;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* MASK EFFECTS */
+        .noise-mask {
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            z-index: 50;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* TEMPLATE INFO BOX (DELETED ON PRODUCTION) */
+        .credits-banner {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          z-index: 999;
+          font-size: 10px;
+          opacity: 0.4;
+          transition: opacity 0.3s;
+        }
+        .credits-banner:hover { opacity: 1; }
+    </style>
+
+<script type="importmap">
+{
+  "imports": {
+    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+<body>
+    <!-- NOISE GRAIN OVERLAY -->
+    <div class="noise-mask"></div>
+
+    <!-- ROOT MOUNT POINT -->
+    <main id="root"></main>
+
+    <!-- CREDITS (DO NOT REMOVE AS PER LICENSE) -->
+    <div class="credits-banner mono">
+      SOURCE ARCHITECT: <a href="https://github.com/naborajs" target="_blank" class="text-[#00BFA6] underline">NABORAJ SARKAR</a>
+    </div>
+
+    <!-- SYSTEM SCRIPTS -->
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
