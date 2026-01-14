@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <!-- 
       ================================================================
-      PROJECT: AUTHORITY NODE TEMPLATE v11.0
+      PROJECT: NS CODEX AUTHORITY NODE v12.5 (Anniversary Edition)
       ORIGINAL ARCHITECT: NABORAJ SARKAR
       GITHUB: https://github.com/naborajs
       LICENSE: MIT (Branding remains property of original author)
@@ -13,72 +14,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- PRIMARY SEO & IDENTITY -->
-    <title>Naboraj Sarkar | Authority Node</title>
-    <meta name="title" content="Naboraj Sarkar | Official Digital Authority Node">
-    <meta name="description" content="Official personal portal of Naboraj Sarkar. High-performance engineering, systems architecture, and digital branding. Template by Naboraj Sarkar.">
-    <meta name="keywords" content="Naboraj Sarkar, Digital Authority, Systems Architect, India Tech, Web Developer, React Engineer">
+    <title>Naboraj Sarkar | NS CODEX Authority Node</title>
+    <meta name="title" content="Naboraj Sarkar | Official NS CODEX Digital Authority Node">
+    <meta name="description" content="Official personal portal of Naboraj Sarkar. Powered by NS CODEX. High-performance engineering, systems architecture, and digital branding.">
+    <meta name="keywords" content="Naboraj Sarkar, NS CODEX, Systems Architect, India Tech, Automation Expert, Web Solutions, AI Engineer">
     <meta name="author" content="Naboraj Sarkar">
     <meta name="theme-color" content="#050505">
 
-    <!-- CANONICAL (GOOGLE) -->
+    <!-- CANONICAL -->
     <link rel="canonical" href="https://naborajsarkar-me.vercel.app/">
 
-    <!-- SOCIAL INDEXING (OPEN GRAPH – GOOGLE / LINK PREVIEWS) -->
+    <!-- SOCIAL INDEXING -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://naborajsarkar-me.vercel.app/">
-    <meta property="og:title" content="Naboraj Sarkar | Official Node">
-    <meta property="og:description" content="Synthesizing high-performance logic with cinematic digital identity. Template by Naboraj Sarkar.">
+    <meta property="og:title" content="Naboraj Sarkar | NS CODEX Systems Architect">
+    <meta property="og:description" content="Synthesizing high-performance logic with cinematic digital identity under the NS CODEX protocol.">
     <meta property="og:image" content="https://naborajsarkar-me.vercel.app/logo.png">
 
-    <!-- TWITTER / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Naboraj Sarkar | Official Node">
-    <meta name="twitter:description" content="Synthesizing high-performance logic with cinematic digital identity.">
-    <meta name="twitter:image" content="https://naborajsarkar-me.vercel.app/logo.png">
-
-    <!-- ASSETS (COPY-PASTE SAFE FOR OTHERS) -->
+    <!-- ASSETS -->
     <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="shortcut icon" type="image/png" href="/logo.png">
     <link rel="apple-touch-icon" href="/logo.png">
     
-    <!-- ADVANCED GOOGLE SCHEMA (JSON-LD) -->
+    <!-- SCHEMA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Naboraj Sarkar",
       "jobTitle": "Systems Architect",
-      "nationality": "Indian",
       "url": "https://naborajsarkar-me.vercel.app/",
       "image": "https://naborajsarkar-me.vercel.app/logo.png",
-      "sameAs": [
-        "https://github.com/naborajs",
-        "https://linkedin.com/in/naboraj-sarkar",
-        "https://instagram.com/naborajs",
-        "https://x.com/NSGAMMING699",
-        "https://nsgamming.xyz"
-      ],
-      "description": "Naboraj Sarkar is a technical creator and systems architect specializing in high-fidelity digital solutions."
+      "description": "Naboraj Sarkar is a technical creator and systems architect at NS CODEX specializing in high-fidelity digital solutions."
     }
     </script>
 
     <!-- UI ENGINES -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-primary: #00BFA6;
+            --brand-secondary: #7C3AED;
+            --bg-base: #050505;
+        }
+        
+        * { cursor: crosshair; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: #FFFFFF;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transform: translate3d(0,0,0);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #2DD4BF 50%, var(--brand-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: flow 6s linear infinite;
+        }
+
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: #050505;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 10px; }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, var(--brand-primary), var(--brand-secondary), transparent);
+            background-size: 100% 200%;
+            animation: moveLine 4s linear infinite;
+        }
+        @keyframes moveLine {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 200%; }
+        }
+    </style>
+
+<script type="importmap">
+{
+  "imports": {
+    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
 </head>
 <body>
-    <!-- NOISE GRAIN OVERLAY -->
-    <div class="noise-mask"></div>
-
-    <!-- ROOT MOUNT POINT -->
+    <canvas id="particle-canvas"></canvas>
     <main id="root"></main>
+    <script type="module" src="index.tsx"></script>
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: -1000, y: -1000 };
+        const particleCount = window.innerWidth < 768 ? 50 : 120;
+        const connectionDistance = 140;
 
-    <!-- CREDITS (DO NOT REMOVE AS PER LICENSE) -->
-    <div class="credits-banner mono">
-      SOURCE ARCHITECT: <a href="https://github.com/naborajs" target="_blank" class="text-[#00BFA6] underline">NABORAJ SARKAR</a>
-    </div>
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-    <!-- SYSTEM SCRIPTS -->
-    <script type="module" src="/index.tsx"></script>
+        class Particle {
+            constructor() {
+                this.init();
+            }
+            init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.z = Math.random() * 2 + 0.5;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 1.2 + 0.8;
+                this.alpha = Math.random() * 0.3 + 0.1;
+                this.hue = Math.random() > 0.8 ? 270 : 170;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                let dx = (mouse.x - canvas.width / 2) * 0.015 * this.z;
+                let dy = (mouse.y - canvas.height / 2) * 0.015 * this.z;
+                
+                this.drawX = this.x + dx;
+                this.drawY = this.y + dy;
+
+                if (this.x < -100) this.x = canvas.width + 100;
+                if (this.x > canvas.width + 100) this.x = -100;
+                if (this.y < -100) this.y = canvas.height + 100;
+                if (this.y > canvas.height + 100) this.y = -100;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.drawX, this.drawY, this.radius * this.z, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${this.hue}, 100%, 50%, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    const dist = Math.sqrt(Math.pow(p1.drawX - p2.drawX, 2) + Math.pow(p1.drawY - p2.drawY, 2));
+
+                    if (dist < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.drawX, p1.drawY);
+                        ctx.lineTo(p2.drawX, p2.drawY);
+                        const opacity = (1 - dist / connectionDistance) * 0.12;
+                        ctx.strokeStyle = `rgba(0, 191, 166, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 500);
+            gradient.addColorStop(0, 'rgba(0, 191, 166, 0.05)');
+            gradient.addColorStop(1, 'transparent');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => { resize(); createParticles(); });
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+        resize();
+        createParticles();
+        animate();
+    </script>
 </body>
 </html>
