@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://naborajsarkar-me.vercel.app/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://naborajsarkar-me.vercel.app/logo.png</image:loc>
+      <image:title>Naboraj Sarkar – NS Codex Logo</image:title>
+      <image:caption>Official logo and brand icon of Naboraj Sarkar (NS Codex)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://naborajsarkar-me.vercel.app/#about</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://naborajsarkar-me.vercel.app/#protocols</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://naborajsarkar-me.vercel.app/#timeline</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://naborajsarkar-me.vercel.app/#contact</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

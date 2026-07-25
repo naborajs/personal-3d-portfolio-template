@@ -1,0 +1,72 @@
+# Naboraj Sarkar – Official Knowledge Base & System Manifest
+> Brand & Node: NS CODEX (v12.6)
+> Primary Website: https://naborajsarkar-me.vercel.app/
+> Contact Email: nishant.ns.business@gmail.com
+> Phone / WhatsApp: +91 89006 53250
+> Location: West Bengal, India (22.98° N, 87.85° E)
+
+## Executive Summary
+Naboraj Sarkar is a Systems Architect, AI Engineer, and ICSE-trained tech innovator operating out of India under the personal brand **NS CODEX**. His primary mission is empowering India and global learners with **free, high-quality coding education** while building zero-latency enterprise systems, intelligent automation agents, 3D spatial web applications, and participating in crypto asset management.
+
+---
+
+## Key Identity & Credentials
+- **Full Name**: Naboraj Sarkar
+- **Brand / Alias**: NS Codex
+- **Education**: ICSE Board (Indian Certificate of Secondary Education) with Computer Science Specialization
+- **Primary Roles**: Systems Architect, AI Engineer, Educator, Full-Stack Developer, Crypto Investor
+- **Core Mission**: Free Education for All (Bridging India's digital divide through accessible programming knowledge)
+
+---
+
+## Technical Capabilities & Protocol Registry
+
+### 1. Enterprise Logic (Systems Architecture)
+- **Focus**: Architecting zero-latency backends for global distribution.
+- **Tech Stack**: Node.js, Kubernetes (K8s), Redis, Docker, Distributed Databases.
+- **Value**: Reliable, high-throughput foundation for enterprise applications.
+
+### 2. Intelligent Bots (AI Automation)
+- **Focus**: Neuro-mimetic automation for Telegram, WhatsApp, and CRM infrastructure.
+- **Tech Stack**: Python, OpenAI API, Webhooks, Node-RED, Custom LLM Pipelines.
+- **Value**: Scalable business automation, inventory sync, and multi-channel customer service agents.
+
+### 3. Spatial Experiences (3D & Interactive Web)
+- **Focus**: Immersive web portals using physics-driven liquid glass and 3D graphics.
+- **Tech Stack**: Three.js, React.js, WebGL Shaders, Framer Motion, Tailwind CSS.
+- **Value**: High-converting, cinematic digital brand presence.
+
+### 4. Global Pipeline (Integration & Automation)
+- **Focus**: Unifying marketing tools, payment processing, and logistics systems.
+- **Tech Stack**: Node-RED, Stripe API, REST/GraphQL APIs, CRM Systems.
+- **Value**: Eliminates manual friction for agencies and creator businesses.
+
+### 5. Security Forge (Cybersecurity & Infrastructure)
+- **Focus**: Hardening web assets, end-to-end encryption, network edge firewalls.
+- **Tech Stack**: TLS/SSL, Cybersecurity Best Practices, Linux Infrastructure.
+- **Value**: Complete data integrity and threat mitigation.
+
+### 6. Mobile Synapse (Mobile Application Development)
+- **Focus**: Native-feel mobile apps with fluid 60fps interaction and offline storage.
+- **Tech Stack**: Flutter, Swift, Kotlin, React Native.
+- **Value**: Portable, high-speed mobile software.
+
+---
+
+## Historical Timeline & Growth
+- **2021 – The Awakening**: Initial entry into low-level systems programming, terminal logic, and algorithmic foundation.
+- **2022 – ICSE & Foundations**: Graduated ICSE board with computer science focus, developing core automation scripts.
+- **2023 – NS CODEX Genesis**: Designed the signature liquid-glass aesthetic, officially launched NS CODEX, and deployed AI agents.
+- **2024–2026 – Crypto & Free Education**: Expanded crypto investment strategies while executing the flagship mission to deliver free coding education to students across India.
+
+---
+
+## Official Links & Social Profiles
+- **Website**: https://naborajsarkar-me.vercel.app/
+- **GitHub**: https://github.com/naborajs
+- **LinkedIn**: https://linkedin.com/in/naboraj-sarkar
+- **Instagram**: https://instagram.com/naborajs
+- **X / Twitter**: https://x.com/NSGAMMING699
+- **YouTube**: https://youtube.com/@Nishant_sarkar
+- **Direct WhatsApp**: https://wa.me/918900653250
+- **Direct Email**: nishant.ns.business@gmail.com
