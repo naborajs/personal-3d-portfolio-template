@@ -1,0 +1,19 @@
+{
+  "short_name": "NS Codex",
+  "name": "Naboraj Sarkar – Systems Architect & AI Engineer",
+  "description": "Official portfolio and authority node of Naboraj Sarkar (NS Codex).",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#060608",
+  "theme_color": "#060608",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["technology", "education", "portfolio"]
+}

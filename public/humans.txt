@@ -1,0 +1,12 @@
+/* TEAM */
+  Architect: Naboraj Sarkar
+  Brand: NS CODEX
+  Contact: nishant.ns.business@gmail.com
+  Twitter: @NSGAMMING699
+  Location: West Bengal, India
+
+/* SITE */
+  Last update: 2026/07/25
+  Standards: HTML5, CSS3, ES2024, JSX, TypeScript
+  Components: React, Framer Motion, Lucide Icons, Vite
+  Design System: Liquid Glass aesthetic with warm ember palette
