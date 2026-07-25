@@ -84,7 +84,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       'Architecting zero-latency backends for global distribution. Specializing in highly distributed database clusters and secure authentication protocols that govern massive user traffic.',
     iconName: 'Database',
-    iconColor: 'var(--color-accent-cyan)',
+    iconColor: '#ff6b2c',
     purpose: 'Reliable foundation for modern enterprise-grade solutions.',
     tags: ['Node.js', 'K8s', 'Redis'],
   },
@@ -95,7 +95,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       "Engineering neuro-mimetic automation for Telegram and WhatsApp. These aren't simple scripts; they are intelligent agents capable of managing inventory, CRM sync, and dynamic customer support.",
     iconName: 'Cpu',
-    iconColor: 'var(--color-accent-teal)',
+    iconColor: '#ffaa00',
     purpose: 'Scaling business operations through algorithmic efficiency.',
     tags: ['Python', 'OpenAI', 'Webhooks'],
   },
@@ -106,7 +106,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       'Moving beyond flat design. Utilizing 3D math and advanced physics engines to create immersive web portals that respond to user presence and intent.',
     iconName: 'Eye',
-    iconColor: 'var(--color-accent-purple)',
+    iconColor: '#ff4757',
     purpose: 'Elevating digital brand identity to cinematic heights.',
     tags: ['Three.js', 'React', 'Shaders'],
   },
@@ -117,7 +117,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       'Connecting the disconnected. Building unified data highways between marketing tools, payment gateways, and logistics trackers to eliminate human error.',
     iconName: 'Zap',
-    iconColor: '#fbbf24',
+    iconColor: '#ffc312',
     purpose: 'Total digital transformation for creator-led agencies.',
     tags: ['Node-RED', 'Stripe', 'CRMs'],
   },
@@ -128,7 +128,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       'Hardening digital assets against modern threats. Implementing end-to-end encryption and robust firewall configurations at the network edge.',
     iconName: 'Globe',
-    iconColor: 'var(--color-accent-teal)',
+    iconColor: '#ff6b2c',
     purpose: 'Protecting user data in an increasingly volatile web.',
     tags: ['CyberSec', 'Infra', 'TLS'],
   },
@@ -139,7 +139,7 @@ export const PROTOCOLS: Protocol[] = [
     description:
       'Developing mobile apps that feel like native extensions of the user. Focus on 60fps animations, intuitive gesture control, and offline-first persistence.',
     iconName: 'Smartphone',
-    iconColor: '#ec4899',
+    iconColor: '#e84118',
     purpose: 'Portable utility for the high-speed modern user.',
     tags: ['Swift', 'Flutter', 'Kotlin'],
   },
