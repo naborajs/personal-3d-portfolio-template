@@ -78,8 +78,8 @@ export default function Timeline() {
             right: '1rem',
             height: '1px',
             background:
-              'linear-gradient(to right, transparent, var(--color-accent-cyan), var(--color-accent-purple), transparent)',
-            opacity: 0.15,
+              'linear-gradient(to right, transparent, var(--color-accent-primary), var(--color-accent-secondary), transparent)',
+            opacity: 0.2,
             zIndex: 0,
           }}
         />
@@ -97,7 +97,7 @@ export default function Timeline() {
                 delay: i * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="glass-panel timeline-card"
+              className="liquid-glass-card timeline-card"
               style={{
                 padding: '2rem',
                 borderRadius: 'var(--border-radius-lg)',
@@ -121,7 +121,7 @@ export default function Timeline() {
                     fontSize: '1.75rem',
                     fontWeight: 700,
                     fontStyle: 'italic',
-                    color: 'var(--color-accent-cyan)',
+                    color: 'var(--color-accent-primary)',
                     transition: 'transform var(--transition-base)',
                   }}
                 >
@@ -180,8 +180,8 @@ export default function Timeline() {
                   left: '-0.4rem',
                   width: '1.2rem',
                   height: '1.2rem',
-                  borderLeft: '2px solid var(--color-accent-cyan)',
-                  borderBottom: '2px solid var(--color-accent-cyan)',
+                  borderLeft: '2px solid var(--color-accent-primary)',
+                  borderBottom: '2px solid var(--color-accent-primary)',
                   borderBottomLeftRadius: 'var(--border-radius-sm)',
                   opacity: 0,
                   transition: 'opacity 0.4s ease',
@@ -192,7 +192,6 @@ export default function Timeline() {
         })}
       </div>
 
-      {/* Responsive & hover styles */}
       <style>{`
         @media (min-width: 768px) {
           .timeline-grid {
@@ -207,12 +206,8 @@ export default function Timeline() {
             display: block !important;
           }
         }
-        .timeline-card:hover {
-          background: rgba(0, 229, 255, 0.03) !important;
-          border-color: var(--glass-border-hover) !important;
-        }
         .timeline-card:hover .timeline-icon {
-          color: var(--color-accent-cyan) !important;
+          color: var(--color-accent-primary) !important;
           transform: scale(1.08);
         }
         .timeline-card:hover .timeline-corner {

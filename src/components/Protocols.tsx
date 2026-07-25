@@ -20,7 +20,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: Reac
   Smartphone,
 };
 
-// ─── Protocol Card ──────────────────────────────────────────
+// ─── Protocol Card (Liquid Glass) ───────────────────────────
 function ProtocolCard({ item }: { item: Protocol }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -40,7 +40,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
         mouseX.set(0);
         mouseY.set(0);
       }}
-      className="glass-panel protocol-card"
+      className="liquid-glass-card"
       style={{
         rotateX,
         rotateY,
@@ -52,24 +52,9 @@ function ProtocolCard({ item }: { item: Protocol }) {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        position: 'relative',
-        overflow: 'hidden',
         cursor: 'default',
       }}
     >
-      {/* Hover glow overlay */}
-      <div
-        className="protocol-card-glow"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: `radial-gradient(circle at 30% 20%, ${item.iconColor}11 0%, transparent 60%)`,
-          opacity: 0,
-          transition: 'opacity 0.5s ease',
-          pointerEvents: 'none',
-        }}
-      />
-
       {/* Header: icon + id */}
       <div
         style={{
@@ -83,11 +68,10 @@ function ProtocolCard({ item }: { item: Protocol }) {
           style={{
             padding: '0.75rem',
             borderRadius: 'var(--border-radius-sm)',
-            background: `color-mix(in srgb, ${item.iconColor} 8%, transparent)`,
+            background: `${item.iconColor}12`,
             color: item.iconColor,
             transition: 'background 0.4s ease',
           }}
-          className="protocol-icon-wrap"
         >
           {IconComp && <IconComp size={22} />}
         </div>
@@ -145,7 +129,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Activity size={11} style={{ color: 'var(--color-accent-cyan)', flexShrink: 0 }} />
+          <Activity size={11} style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }} />
           <p
             className="font-display"
             style={{
@@ -169,6 +153,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
                 padding: '0.25rem 0.6rem',
                 borderRadius: 'var(--border-radius-sm)',
                 background: 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 255, 255, 0.04)',
                 color: 'var(--color-text-tertiary)',
                 letterSpacing: '0.05em',
               }}
@@ -178,20 +163,6 @@ function ProtocolCard({ item }: { item: Protocol }) {
           ))}
         </div>
       </div>
-
-      {/* Card hover styles */}
-      <style>{`
-        .protocol-card:hover {
-          border-color: var(--glass-border-hover) !important;
-          box-shadow: 0 8px 40px rgba(0, 229, 255, 0.06), inset 0 1px 0 rgba(255,255,255,0.04);
-        }
-        .protocol-card:hover .protocol-card-glow {
-          opacity: 1 !important;
-        }
-        .protocol-card:hover .protocol-icon-wrap {
-          background: color-mix(in srgb, var(--color-accent-cyan) 15%, transparent) !important;
-        }
-      `}</style>
     </motion.article>
   );
 }
@@ -248,13 +219,13 @@ export default function Protocols() {
           </h2>
         </motion.div>
 
-        {/* Filter Pills */}
+        {/* Filter Pills – Liquid Glass */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="glass-panel"
+          className="liquid-glass-card"
           style={{
             display: 'inline-flex',
             gap: '0.25rem',
@@ -281,15 +252,15 @@ export default function Protocols() {
                 transition: 'all var(--transition-base)',
                 background:
                   activeFilter === cat
-                    ? 'var(--color-text-primary)'
+                    ? 'var(--color-accent-primary)'
                     : 'transparent',
                 color:
                   activeFilter === cat
-                    ? 'var(--color-bg-deep)'
+                    ? '#fff'
                     : 'var(--color-text-tertiary)',
                 boxShadow:
                   activeFilter === cat
-                    ? '0 4px 20px rgba(255, 255, 255, 0.08)'
+                    ? '0 4px 20px rgba(255, 107, 44, 0.3)'
                     : 'none',
               }}
               onMouseEnter={(e) => {
@@ -334,7 +305,6 @@ export default function Protocols() {
         </AnimatePresence>
       </div>
 
-      {/* Responsive styles */}
       <style>{`
         @media (min-width: 768px) {
           .protocols-header {
