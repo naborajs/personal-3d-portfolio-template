@@ -1,74 +1,78 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 
 /**
- * Ambient Background
+ * Siri-like Neural Network Background
  *
- * Renders slow-moving, large glowing orbs that drift organically across
- * the viewport. Uses a lightweight canvas approach with minimal draw calls.
- * Orbs respond very subtly to mouse position for a living feel.
- *
- * This intentionally avoids the "AI particle + connection lines" look.
+ * Connected particle system with glowing nodes and flowing connection
+ * lines, inspired by Apple Siri's neural visualization. Uses warm
+ * orange/amber/red palette. Mouse-reactive, performance-optimized.
  */
 
-interface Orb {
+interface Particle {
   x: number;
   y: number;
-  radius: number;
   vx: number;
   vy: number;
+  radius: number;
+  baseAlpha: number;
   hue: number;
   saturation: number;
   lightness: number;
-  alpha: number;
-  phase: number; // for organic pulsing
-  phaseSpeed: number;
+  pulsePhase: number;
+  pulseSpeed: number;
 }
 
-const ORB_COUNT_DESKTOP = 6;
-const ORB_COUNT_MOBILE = 4;
+const PARTICLE_COUNT_DESKTOP = 90;
+const PARTICLE_COUNT_MOBILE = 45;
+const CONNECTION_DIST = 160;
+const MOUSE_RADIUS = 250;
 
-function createOrb(w: number, h: number): Orb {
-  const hueChoice = Math.random();
-  let hue: number;
-  let saturation: number;
-  let lightness: number;
+function createParticle(w: number, h: number): Particle {
+  // Warm palette distribution
+  const roll = Math.random();
+  let hue: number, saturation: number, lightness: number;
 
-  if (hueChoice < 0.4) {
-    // Cyan / Teal
-    hue = 175 + Math.random() * 15;
-    saturation = 80 + Math.random() * 20;
-    lightness = 45 + Math.random() * 15;
-  } else if (hueChoice < 0.7) {
-    // Deep blue
-    hue = 220 + Math.random() * 20;
-    saturation = 60 + Math.random() * 20;
-    lightness = 35 + Math.random() * 15;
+  if (roll < 0.45) {
+    // Orange
+    hue = 18 + Math.random() * 15;
+    saturation = 85 + Math.random() * 15;
+    lightness = 50 + Math.random() * 10;
+  } else if (roll < 0.75) {
+    // Amber / Gold
+    hue = 38 + Math.random() * 10;
+    saturation = 90 + Math.random() * 10;
+    lightness = 50 + Math.random() * 8;
+  } else if (roll < 0.9) {
+    // Warm Red
+    hue = 5 + Math.random() * 10;
+    saturation = 80 + Math.random() * 15;
+    lightness = 48 + Math.random() * 10;
   } else {
-    // Soft purple
-    hue = 260 + Math.random() * 20;
-    saturation = 50 + Math.random() * 30;
-    lightness = 30 + Math.random() * 20;
+    // Soft warm white (rare nodes for depth)
+    hue = 30 + Math.random() * 10;
+    saturation = 20 + Math.random() * 20;
+    lightness = 70 + Math.random() * 15;
   }
 
   return {
     x: Math.random() * w,
     y: Math.random() * h,
-    radius: Math.min(w, h) * (0.15 + Math.random() * 0.2),
-    vx: (Math.random() - 0.5) * 0.15,
-    vy: (Math.random() - 0.5) * 0.12,
+    vx: (Math.random() - 0.5) * 0.35,
+    vy: (Math.random() - 0.5) * 0.35,
+    radius: 1 + Math.random() * 1.5,
+    baseAlpha: 0.15 + Math.random() * 0.3,
     hue,
     saturation,
     lightness,
-    alpha: 0.04 + Math.random() * 0.04,
-    phase: Math.random() * Math.PI * 2,
-    phaseSpeed: 0.002 + Math.random() * 0.003,
+    pulsePhase: Math.random() * Math.PI * 2,
+    pulseSpeed: 0.01 + Math.random() * 0.015,
   };
 }
 
 export default function Background() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -9999, y: -9999 });
-  const orbsRef = useRef<Orb[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
   const rafRef = useRef<number>(0);
   const prefersReducedMotion = useRef(false);
 
@@ -79,8 +83,10 @@ export default function Background() {
     const h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
-    const count = w < 768 ? ORB_COUNT_MOBILE : ORB_COUNT_DESKTOP;
-    orbsRef.current = Array.from({ length: count }, () => createOrb(w, h));
+    const count = w < 768 ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
+    particlesRef.current = Array.from({ length: count }, () =>
+      createParticle(w, h),
+    );
   }, []);
 
   useEffect(() => {
@@ -100,88 +106,146 @@ export default function Background() {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
     };
+    const handleMouseLeave = () => {
+      mouseRef.current.x = -9999;
+      mouseRef.current.y = -9999;
+    };
 
     window.addEventListener('resize', handleResize, { passive: true });
     window.addEventListener('mousemove', handleMouse, { passive: true });
-
-    let time = 0;
+    document.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
     function draw() {
       if (!ctx || !canvas) return;
       const w = canvas.width;
       const h = canvas.height;
+      const particles = particlesRef.current;
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
-      // Clear with deep background
-      ctx.fillStyle = '#030305';
+      // Clear with deep warm-tinted black
+      ctx.fillStyle = '#060608';
       ctx.fillRect(0, 0, w, h);
 
-      const { x: mx, y: my } = mouseRef.current;
-
-      // Very subtle mouse-following glow (only on desktop)
+      // Mouse-following warm glow (desktop only)
       if (w >= 768 && mx > 0 && my > 0) {
-        const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 400);
-        grad.addColorStop(0, 'rgba(0, 229, 255, 0.025)');
+        const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 350);
+        grad.addColorStop(0, 'rgba(255, 107, 44, 0.04)');
+        grad.addColorStop(0.5, 'rgba(255, 170, 0, 0.015)');
         grad.addColorStop(1, 'transparent');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, w, h);
       }
 
+      // Update particles
       if (!prefersReducedMotion.current) {
-        time++;
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.pulsePhase += p.pulseSpeed;
+
+          // Mouse repulsion (subtle)
+          if (mx > 0 && my > 0) {
+            const dx = p.x - mx;
+            const dy = p.y - my;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MOUSE_RADIUS && dist > 0) {
+              const force = (1 - dist / MOUSE_RADIUS) * 0.8;
+              p.vx += (dx / dist) * force * 0.1;
+              p.vy += (dy / dist) * force * 0.1;
+            }
+          }
+
+          // Soft velocity dampening
+          p.vx *= 0.998;
+          p.vy *= 0.998;
+
+          // Clamp speed
+          const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (speed > 0.6) {
+            p.vx = (p.vx / speed) * 0.6;
+            p.vy = (p.vy / speed) * 0.6;
+          }
+
+          // Wrap edges
+          if (p.x < -20) p.x = w + 20;
+          if (p.x > w + 20) p.x = -20;
+          if (p.y < -20) p.y = h + 20;
+          if (p.y > h + 20) p.y = -20;
+        }
       }
 
-      // Draw orbs
-      for (const orb of orbsRef.current) {
-        if (!prefersReducedMotion.current) {
-          orb.x += orb.vx;
-          orb.y += orb.vy;
-          orb.phase += orb.phaseSpeed;
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p1 = particles[i];
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < CONNECTION_DIST * CONNECTION_DIST) {
+            const dist = Math.sqrt(distSq);
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.12;
+
+            // Gradient connection line between the two node colors
+            const grad = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            grad.addColorStop(
+              0,
+              `hsla(${p1.hue}, ${p1.saturation}%, ${p1.lightness}%, ${alpha})`,
+            );
+            grad.addColorStop(
+              1,
+              `hsla(${p2.hue}, ${p2.saturation}%, ${p2.lightness}%, ${alpha})`,
+            );
+
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
         }
+      }
 
-        // Wrap edges softly
-        if (orb.x < -orb.radius) orb.x = w + orb.radius;
-        if (orb.x > w + orb.radius) orb.x = -orb.radius;
-        if (orb.y < -orb.radius) orb.y = h + orb.radius;
-        if (orb.y > h + orb.radius) orb.y = -orb.radius;
+      // Draw nodes with glow
+      for (const p of particles) {
+        const pulse = 1 + Math.sin(p.pulsePhase) * 0.3;
+        const currentAlpha = p.baseAlpha * pulse;
+        const currentRadius = p.radius * (0.9 + Math.sin(p.pulsePhase * 0.7) * 0.15);
 
-        // Organic pulsing
-        const pulseFactor = 1 + Math.sin(orb.phase) * 0.08;
-        const currentRadius = orb.radius * pulseFactor;
-        const currentAlpha = orb.alpha * (0.85 + Math.sin(orb.phase * 0.7) * 0.15);
-
-        // Subtle mouse influence
-        let drawX = orb.x;
-        let drawY = orb.y;
-        if (w >= 768 && mx > 0 && my > 0) {
-          const dx = mx - orb.x;
-          const dy = my - orb.y;
+        // Mouse proximity boost
+        let proximityBoost = 0;
+        if (mx > 0 && my > 0) {
+          const dx = p.x - mx;
+          const dy = p.y - my;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const influence = Math.max(0, 1 - dist / 600) * 8;
-          drawX += (dx / (dist || 1)) * influence;
-          drawY += (dy / (dist || 1)) * influence;
+          if (dist < MOUSE_RADIUS) {
+            proximityBoost = (1 - dist / MOUSE_RADIUS) * 0.4;
+          }
         }
 
-        const grad = ctx.createRadialGradient(
-          drawX,
-          drawY,
+        // Outer glow
+        const glowRadius = currentRadius * (3 + proximityBoost * 4);
+        const glowGrad = ctx.createRadialGradient(
+          p.x, p.y, 0,
+          p.x, p.y, glowRadius,
+        );
+        glowGrad.addColorStop(
           0,
-          drawX,
-          drawY,
-          currentRadius,
+          `hsla(${p.hue}, ${p.saturation}%, ${p.lightness}%, ${(currentAlpha + proximityBoost) * 0.3})`,
         );
-        grad.addColorStop(
-          0,
-          `hsla(${orb.hue}, ${orb.saturation}%, ${orb.lightness}%, ${currentAlpha * 1.5})`,
-        );
-        grad.addColorStop(
-          0.5,
-          `hsla(${orb.hue}, ${orb.saturation}%, ${orb.lightness}%, ${currentAlpha * 0.6})`,
-        );
-        grad.addColorStop(1, 'transparent');
-
-        ctx.fillStyle = grad;
+        glowGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowGrad;
         ctx.beginPath();
-        ctx.arc(drawX, drawY, currentRadius, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core node
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, ${p.saturation}%, ${p.lightness + 10}%, ${currentAlpha + proximityBoost})`;
         ctx.fill();
       }
 
@@ -193,6 +257,7 @@ export default function Background() {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouse);
+      document.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(rafRef.current);
     };
   }, [init]);
