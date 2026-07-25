@@ -31,13 +31,6 @@ function ProtocolCard({ item }: { item: Protocol }) {
 
   return (
     <motion.article
-      style={{
-        rotateX,
-        rotateY,
-        perspective: 1000,
-        willChange: 'transform',
-        transformStyle: 'preserve-3d',
-      }}
       onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         mouseX.set(e.clientX - (rect.left + rect.width / 2));
@@ -52,6 +45,8 @@ function ProtocolCard({ item }: { item: Protocol }) {
         rotateX,
         rotateY,
         perspective: 1000,
+        willChange: 'transform',
+        transformStyle: 'preserve-3d',
         padding: '2rem',
         borderRadius: 'var(--border-radius-lg)',
         display: 'flex',
