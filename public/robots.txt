@@ -1,0 +1,63 @@
+# ================================================================
+# ROBOTS.TXT – NS CODEX AUTHORITY NODE
+# Architect: Naboraj Sarkar
+# URL: https://naborajsarkar-me.vercel.app/
+# Permissive Crawling Rules for All Search Engines & AI Crawlers
+# ================================================================
+
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# Explicit AI & LLM Crawler Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: diffbot
+Allow: /
+
+# Sitemap & LLM Data Links
+Sitemap: https://naborajsarkar-me.vercel.app/sitemap.xml
+Host: https://naborajsarkar-me.vercel.app/
