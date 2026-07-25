@@ -15,7 +15,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="glass-panel-strong"
+        className="liquid-glass-card"
         style={{
           borderRadius: 'var(--border-radius-xl)',
           padding: 'clamp(2.5rem, 5vw, 6rem)',
@@ -24,15 +24,16 @@ export default function Contact() {
           overflow: 'hidden',
         }}
       >
-        {/* Decorative gradient overlays */}
+        {/* Decorative warm gradient overlays */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(135deg, rgba(0, 229, 255, 0.04) 0%, transparent 40%, rgba(124, 58, 237, 0.04) 100%)',
+              'linear-gradient(135deg, rgba(255, 107, 44, 0.04) 0%, transparent 40%, rgba(255, 170, 0, 0.03) 100%)',
             pointerEvents: 'none',
+            borderRadius: 'inherit',
           }}
         />
         <div
@@ -46,7 +47,7 @@ export default function Contact() {
             height: '60%',
             borderRadius: '50%',
             background:
-              'radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(255, 107, 44, 0.04) 0%, transparent 70%)',
             pointerEvents: 'none',
           }}
         />
@@ -73,7 +74,7 @@ export default function Contact() {
             >
               Direct
               <br />
-              <span style={{ color: 'var(--color-accent-cyan)' }}>Inquiry</span>
+              <span className="text-gradient-flow">Inquiry</span>
             </h2>
 
             <p

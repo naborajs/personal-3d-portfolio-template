@@ -66,7 +66,7 @@ export default function Footer() {
                   fontSize: '0.55rem',
                   fontWeight: 700,
                   letterSpacing: '0.15em',
-                  color: 'rgba(0, 229, 255, 0.4)',
+                  color: 'rgba(255, 107, 44, 0.4)',
                   marginTop: '0.15rem',
                 }}
               >
@@ -98,7 +98,7 @@ export default function Footer() {
           >
             <MapPin
               size={12}
-              style={{ color: 'var(--color-accent-cyan)', flexShrink: 0 }}
+              style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }}
             />
             <span
               className="font-mono"
@@ -218,7 +218,7 @@ export default function Footer() {
                   fontWeight: 700,
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'var(--color-accent-cyan)',
+                  color: 'var(--color-accent-primary)',
                   textDecoration: 'none',
                   transition: 'color var(--transition-base)',
                 }}
@@ -226,7 +226,7 @@ export default function Footer() {
                   (e.currentTarget.style.color = 'var(--color-text-primary)')
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = 'var(--color-accent-cyan)')
+                  (e.currentTarget.style.color = 'var(--color-accent-primary)')
                 }
               >
                 WhatsApp
@@ -251,9 +251,9 @@ export default function Footer() {
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {[
-                { label: 'Operational', color: '#22c55e' },
-                { label: 'Education_Live', color: '#3b82f6' },
-                { label: 'ICSE_Node', color: 'var(--color-accent-teal)' },
+                { label: 'Operational', color: 'var(--color-accent-secondary)' },
+                { label: 'Education_Live', color: 'var(--color-accent-primary)' },
+                { label: 'ICSE_Node', color: 'var(--color-accent-tertiary)' },
               ].map((status) => (
                 <div
                   key={status.label}
@@ -335,22 +335,21 @@ export default function Footer() {
             fontWeight: 700,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: 'rgba(0, 229, 255, 0.3)',
+            color: 'rgba(255, 107, 44, 0.3)',
             textDecoration: 'none',
             transition: 'color var(--transition-base)',
           }}
           onMouseEnter={(e) =>
-            (e.currentTarget.style.color = 'var(--color-accent-cyan)')
+            (e.currentTarget.style.color = 'var(--color-accent-primary)')
           }
           onMouseLeave={(e) =>
-            (e.currentTarget.style.color = 'rgba(0, 229, 255, 0.3)')
+            (e.currentTarget.style.color = 'rgba(255, 107, 44, 0.3)')
           }
         >
           Architectural_Source
         </a>
       </div>
 
-      {/* Responsive styles */}
       <style>{`
         @media (min-width: 768px) {
           .footer-grid {
