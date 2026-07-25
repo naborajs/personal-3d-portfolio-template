@@ -51,7 +51,7 @@ export default function Navbar() {
             borderRadius: 'var(--border-radius-pill)',
             padding: '0.75rem 1.5rem',
             background: isScrolled
-              ? 'rgba(3, 3, 5, 0.85)'
+              ? 'rgba(6, 6, 8, 0.88)'
               : 'var(--glass-bg)',
             borderColor: isScrolled
               ? 'rgba(255, 255, 255, 0.1)'
@@ -93,7 +93,7 @@ export default function Navbar() {
               }}
             >
               NABORAJ{' '}
-              <span style={{ color: 'var(--color-accent-cyan)' }}>SARKAR</span>
+              <span style={{ color: 'var(--color-accent-primary)' }}>SARKAR</span>
             </span>
           </a>
 
@@ -125,14 +125,12 @@ export default function Navbar() {
                     color: 'var(--color-text-secondary)',
                     textDecoration: 'none',
                     transition: 'color var(--transition-base)',
-                    position: 'relative',
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.color = 'var(--color-text-primary)')
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color =
-                      'var(--color-text-secondary)')
+                    (e.currentTarget.style.color = 'var(--color-text-secondary)')
                   }
                 >
                   {link.label}
@@ -181,8 +179,8 @@ export default function Navbar() {
                   alignItems: 'center',
                   gap: '0.5rem',
                   padding: '0.5rem 1.25rem',
-                  background: 'var(--color-accent-teal)',
-                  color: 'var(--color-bg-deep)',
+                  background: 'var(--color-accent-primary)',
+                  color: '#fff',
                   borderRadius: 'var(--border-radius-pill)',
                   fontFamily: 'var(--font-display)',
                   fontWeight: 800,
@@ -191,12 +189,15 @@ export default function Navbar() {
                   textTransform: 'uppercase',
                   textDecoration: 'none',
                   transition: 'all var(--transition-base)',
+                  boxShadow: '0 4px 20px rgba(255, 107, 44, 0.25)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--color-text-primary)';
+                  e.currentTarget.style.background = 'var(--color-accent-secondary)';
+                  e.currentTarget.style.boxShadow = '0 4px 25px rgba(255, 170, 0, 0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--color-accent-teal)';
+                  e.currentTarget.style.background = 'var(--color-accent-primary)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 107, 44, 0.25)';
                 }}
               >
                 <MessageCircle size={12} />
@@ -239,7 +240,7 @@ export default function Navbar() {
             position: 'fixed',
             inset: 0,
             zIndex: 140,
-            background: 'rgba(3, 3, 5, 0.95)',
+            background: 'rgba(6, 6, 8, 0.95)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             display: 'flex',
@@ -284,8 +285,8 @@ export default function Navbar() {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.75rem 2rem',
-              background: 'var(--color-accent-teal)',
-              color: 'var(--color-bg-deep)',
+              background: 'var(--color-accent-primary)',
+              color: '#fff',
               borderRadius: 'var(--border-radius-pill)',
               fontFamily: 'var(--font-display)',
               fontWeight: 800,
@@ -301,7 +302,6 @@ export default function Navbar() {
         </motion.div>
       )}
 
-      {/* Responsive styles injected via <style> to avoid Tailwind dependency */}
       <style>{`
         @media (min-width: 768px) {
           .nav-links-desktop { display: flex !important; }

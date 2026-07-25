@@ -20,7 +20,6 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number }>> = {
 
 /**
  * Staggering text reveal animation for the hero name.
- * Each letter animates in with a slight delay for a premium feel.
  */
 function AnimatedName({
   text,
@@ -77,6 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
+          className="liquid-glass-card"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -85,9 +85,8 @@ export default function Hero() {
             borderRadius: 'var(--border-radius-pill)',
             marginBottom: '2rem',
           }}
-          className="glass-panel"
         >
-          <ShieldCheck size={14} style={{ color: 'var(--color-accent-cyan)' }} />
+          <ShieldCheck size={14} style={{ color: 'var(--color-accent-primary)' }} />
           <span
             className="font-mono"
             style={{
@@ -95,7 +94,7 @@ export default function Hero() {
               fontWeight: 700,
               letterSpacing: '0.3em',
               textTransform: 'uppercase',
-              color: 'var(--color-accent-cyan)',
+              color: 'var(--color-accent-primary)',
             }}
           >
             {IDENTITY.version}_{IDENTITY.versionLabel}
@@ -144,7 +143,7 @@ export default function Hero() {
               fontWeight: 500,
               fontStyle: 'italic',
               textDecorationLine: 'underline',
-              textDecorationColor: 'var(--color-accent-cyan)',
+              textDecorationColor: 'var(--color-accent-primary)',
               textUnderlineOffset: '0.4em',
               textDecorationThickness: '2px',
             }}
@@ -180,7 +179,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow on ${s.name}`}
-                  className="glass-panel"
+                  className="liquid-glass-card"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -196,7 +195,7 @@ export default function Hero() {
                     transition: 'color var(--transition-base)',
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = 'var(--color-accent-cyan)')
+                    (e.currentTarget.style.color = 'var(--color-accent-primary)')
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.color = 'var(--color-text-tertiary)')
