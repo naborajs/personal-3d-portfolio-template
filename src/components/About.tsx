@@ -96,7 +96,7 @@ export default function About() {
           </p>
           <p>
             Based in{' '}
-            <strong style={{ color: 'var(--color-accent-teal)', fontWeight: 600 }}>
+            <strong style={{ color: 'var(--color-accent-primary)', fontWeight: 600 }}>
               India
             </strong>
             , I am dedicated to building systems that aren't just powerful, but
@@ -135,7 +135,7 @@ export default function About() {
                   style={{
                     fontSize: '0.75rem',
                     fontWeight: 800,
-                    color: 'var(--color-accent-cyan)',
+                    color: 'var(--color-accent-primary)',
                     letterSpacing: '0.05em',
                   }}
                 >
@@ -159,7 +159,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Logo Card Column */}
+      {/* Logo Card Column – Liquid Glass Showcase */}
       <motion.div
         variants={{
           hidden: { opacity: 0, scale: 0.9 },
@@ -173,7 +173,7 @@ export default function About() {
       >
         {/* Main Logo Glass Card */}
         <div
-          className="glass-panel-strong"
+          className="liquid-glass-card"
           style={{
             aspectRatio: '1',
             borderRadius: 'var(--border-radius-xl)',
@@ -181,21 +181,21 @@ export default function About() {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '3rem',
-            overflow: 'hidden',
             position: 'relative',
           }}
         >
-          {/* Inner glow gradient */}
+          {/* Inner warm glow gradient */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
+              borderRadius: 'inherit',
               background:
-                'radial-gradient(circle at 30% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%)',
+                'radial-gradient(circle at 30% 30%, rgba(255, 107, 44, 0.06) 0%, transparent 60%)',
               pointerEvents: 'none',
             }}
           />
-          {/* Bottom refraction */}
+          {/* Bottom amber refraction */}
           <div
             style={{
               position: 'absolute',
@@ -205,7 +205,7 @@ export default function About() {
               height: '60%',
               borderRadius: '50%',
               background:
-                'radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%)',
+                'radial-gradient(circle, rgba(255, 170, 0, 0.05) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
@@ -221,7 +221,7 @@ export default function About() {
               objectFit: 'contain',
               position: 'relative',
               zIndex: 1,
-              filter: 'drop-shadow(0 0 40px rgba(0, 229, 255, 0.15))',
+              filter: 'drop-shadow(0 0 40px rgba(255, 107, 44, 0.15))',
             }}
           />
         </div>
@@ -232,7 +232,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="glass-panel"
+          className="liquid-glass-card"
           style={{
             position: 'absolute',
             bottom: '-1rem',
@@ -249,8 +249,8 @@ export default function About() {
               width: '0.5rem',
               height: '0.5rem',
               borderRadius: '50%',
-              background: '#22c55e',
-              boxShadow: '0 0 8px rgba(34, 197, 94, 0.5)',
+              background: 'var(--color-accent-secondary)',
+              boxShadow: '0 0 8px rgba(255, 170, 0, 0.5)',
               animation: 'pulse 2s ease-in-out infinite',
             }}
           />
@@ -269,7 +269,6 @@ export default function About() {
         </motion.div>
       </motion.div>
 
-      {/* Responsive grid + pulse animation */}
       <style>{`
         .about-grid {
           grid-template-columns: 1fr;
