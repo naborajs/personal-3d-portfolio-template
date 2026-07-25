@@ -39,7 +39,7 @@ export default function App() {
           right: 0,
           height: '3px',
           background:
-            'linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-mint), var(--color-accent-purple))',
+            'linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary), var(--color-accent-tertiary))',
           transformOrigin: '0%',
           scaleX,
           zIndex: 200,
