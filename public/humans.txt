@@ -2,7 +2,7 @@
   Architect: Naboraj Sarkar
   Brand: NS CODEX
   Contact: nishant.ns.business@gmail.com
-  Twitter: @NSGAMMING699
+  Twitter: @ItsNaborajs
   Location: West Bengal, India
 
 /* SITE */

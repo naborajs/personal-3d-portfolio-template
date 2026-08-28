@@ -86,7 +86,7 @@ Verified communication channels (GitHub, YouTube, LinkedIn, Instagram, X, WhatsA
 | **Educational Channel** | [youtube.com/@Nishant_sarkar](https://youtube.com/@Nishant_sarkar) | Free Coding Tutorials |
 | **Professional Sync** | [linkedin.com/in/naboraj-sarkar](https://linkedin.com/in/naboraj-sarkar) | Professional Network |
 | **Creative Log** | [instagram.com/naborajs](https://instagram.com/naborajs) | Builder Journey |
-| **Ideas & Updates** | [x.com/NSGAMMING699](https://x.com/NSGAMMING699) | Tech Discourse & Updates |
+| **Ideas & Updates** | [x.com/ItsNaborajs](https://x.com/ItsNaborajs) | Tech Discourse & Updates |
 | **Direct WhatsApp** | [+91 89006 53250](https://wa.me/918900653250) | WhatsApp Business Direct |
 | **Direct Email** | [nishant.ns.business@gmail.com](mailto:nishant.ns.business@gmail.com) | Professional Inquiries |
 

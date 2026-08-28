@@ -55,10 +55,10 @@ export const SOCIAL_CHANNELS: SocialChannel[] = [
   },
   {
     name: 'X (Twitter)',
-    handle: '@NSGAMMING699',
+    handle: '@ItsNaborajs',
     purpose: 'Updates & Ideas',
     description: 'Short-form technical thoughts, AI news, project announcements, and developer discourse.',
-    url: 'https://x.com/NSGAMMING699',
+    url: 'https://x.com/ItsNaborajs',
     iconName: 'Twitter',
     badge: 'FEED',
   },
