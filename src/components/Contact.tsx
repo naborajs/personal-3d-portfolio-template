@@ -1,109 +1,103 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle } from 'lucide-react';
-import { IDENTITY } from '../config';
+import { Mail, MessageCircle, Copy, Check, MapPin, Send } from 'lucide-react';
+import { IDENTITY } from '../data/identity';
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(IDENTITY.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
+
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      style={{ scrollMarginTop: '6rem', padding: '4rem 0' }}
+      style={{ scrollMarginTop: '6rem', padding: '2rem 0' }}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="liquid-glass-card"
         style={{
           borderRadius: 'var(--border-radius-xl)',
-          padding: 'clamp(2.5rem, 5vw, 6rem)',
+          padding: 'clamp(2.5rem, 6vw, 5.5rem)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
+          border: '1px solid rgba(255, 107, 44, 0.25)',
         }}
       >
-        {/* Decorative warm gradient overlays */}
+        {/* Decorative ambient gradients */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(135deg, rgba(255, 107, 44, 0.04) 0%, transparent 40%, rgba(255, 170, 0, 0.03) 100%)',
-            pointerEvents: 'none',
-            borderRadius: 'inherit',
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            top: '-30%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '60%',
-            height: '60%',
-            borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(255, 107, 44, 0.04) 0%, transparent 70%)',
+              'radial-gradient(circle at 50% 0%, rgba(255, 107, 44, 0.08) 0%, transparent 65%)',
             pointerEvents: 'none',
           }}
         />
 
-        {/* Content */}
         <div style={{ position: 'relative', zIndex: 1 }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.6 }}
+            transition={{ duration: 0.6 }}
           >
+            <span className="section-label" style={{ justifyContent: 'center', display: 'flex', marginBottom: '1.25rem' }}>
+              Direct_Transmission
+            </span>
+
             <h2
               id="contact-heading"
               className="font-display"
               style={{
-                fontSize: 'clamp(2.5rem, 7vw, 5.5rem)',
+                fontSize: 'clamp(2.75rem, 8vw, 6rem)',
                 fontWeight: 900,
                 textTransform: 'uppercase',
                 letterSpacing: '-0.03em',
                 lineHeight: 0.95,
-                marginBottom: '1.5rem',
+                marginBottom: '1.25rem',
               }}
             >
-              Direct
-              <br />
-              <span className="text-gradient-flow">Inquiry</span>
+              Direct <span className="text-gradient-flow">Inquiry</span>
             </h2>
 
             <p
               className="font-display"
               style={{
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                fontSize: 'clamp(1rem, 2vw, 1.35rem)',
                 fontWeight: 300,
                 color: 'var(--color-text-secondary)',
-                maxWidth: '36rem',
+                maxWidth: '38rem',
                 margin: '0 auto 2.5rem',
-                lineHeight: 1.6,
+                lineHeight: 1.55,
               }}
             >
-              Available for educational consulting, AI agent deployment, and
-              investment synergy.
+              Open for educational consulting, intelligent bot deployments, open-source initiatives, and technical collaboration.
             </p>
           </motion.div>
 
-          {/* Buttons */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
             className="contact-buttons"
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '1rem',
               marginBottom: '2.5rem',
             }}
@@ -111,37 +105,65 @@ export default function Contact() {
             <a
               href={`mailto:${IDENTITY.email}`}
               className="btn-primary"
-              style={{ width: '100%', maxWidth: '20rem' }}
+              style={{ width: '100%', maxWidth: '19rem' }}
             >
-              <Mail size={16} style={{ position: 'relative', zIndex: 1 }} />
+              <Mail size={16} />
               <span>Email Sync</span>
             </a>
+
+            <button
+              onClick={handleCopyEmail}
+              className="btn-glass"
+              style={{ width: '100%', maxWidth: '19rem' }}
+            >
+              {copied ? (
+                <>
+                  <Check size={16} style={{ color: 'var(--color-status-active)' }} />
+                  <span>Email Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={16} />
+                  <span>Copy Address</span>
+                </>
+              )}
+            </button>
+
             <a
               href={IDENTITY.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-glass"
-              style={{ width: '100%', maxWidth: '20rem' }}
+              style={{ width: '100%', maxWidth: '19rem' }}
             >
               <MessageCircle size={16} />
-              WhatsApp Business
+              <span>WhatsApp Business</span>
             </a>
           </motion.div>
 
-          {/* Business Info */}
+          {/* Business Info Strip */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.45 }}
-            className="font-mono"
+            transition={{ delay: 0.35 }}
             style={{
-              fontSize: '0.6rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '1.5rem',
+              paddingTop: '1.5rem',
+              borderTop: '1px solid var(--glass-l1-border)',
+              fontSize: '0.625rem',
               color: 'var(--color-text-tertiary)',
-              letterSpacing: '0.15em',
             }}
           >
-            BUSINESS: {IDENTITY.phone} | {IDENTITY.email}
+            <span className="font-mono">BUSINESS: {IDENTITY.phone}</span>
+            <span className="font-mono" style={{ color: 'var(--color-text-muted)' }}>•</span>
+            <span className="font-mono">{IDENTITY.email}</span>
+            <span className="font-mono" style={{ color: 'var(--color-text-muted)' }}>•</span>
+            <span className="font-mono">COORDINATES: {IDENTITY.coordinates}</span>
           </motion.div>
         </div>
       </motion.div>
@@ -150,9 +172,9 @@ export default function Contact() {
         @media (min-width: 640px) {
           .contact-buttons {
             flex-direction: row !important;
-            justify-content: center;
           }
-          .contact-buttons a {
+          .contact-buttons a,
+          .contact-buttons button {
             width: auto !important;
           }
         }

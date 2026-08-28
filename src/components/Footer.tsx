@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, ShieldCheck, Heart } from 'lucide-react';
 import { IDENTITY, NAV_LINKS, SOCIALS } from '../config';
 
 export default function Footer() {
@@ -9,22 +9,22 @@ export default function Footer() {
     <footer
       role="contentinfo"
       style={{
-        paddingTop: '4rem',
-        borderTop: '1px solid var(--glass-border)',
+        paddingTop: '5rem',
+        borderTop: '1px solid var(--glass-l1-border)',
       }}
     >
-      {/* Main Footer Content */}
+      {/* Main Footer Grid */}
       <div
         className="footer-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr',
-          gap: '3rem',
-          paddingBottom: '3rem',
+          gap: '3.5rem',
+          paddingBottom: '3.5rem',
         }}
       >
         {/* Brand Column */}
-        <div style={{ maxWidth: '20rem' }}>
+        <div style={{ maxWidth: '24rem' }}>
           <div
             style={{
               display: 'flex',
@@ -35,25 +35,23 @@ export default function Footer() {
           >
             <img
               src={IDENTITY.logo}
-              alt="NS Codex Logo"
+              alt="NS Codex Authority Emblem"
               style={{
                 width: '2.5rem',
                 height: '2.5rem',
                 objectFit: 'contain',
-                opacity: 0.4,
-                transition: 'opacity var(--transition-base)',
                 borderRadius: '50%',
+                opacity: 0.85,
+                filter: 'drop-shadow(0 0 10px rgba(255, 107, 44, 0.3))',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.4')}
             />
             <div>
               <p
                 className="font-display"
                 style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.15em',
+                  fontSize: '0.85rem',
+                  fontWeight: 900,
+                  letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   color: 'var(--color-text-primary)',
                 }}
@@ -66,27 +64,25 @@ export default function Footer() {
                   fontSize: '0.55rem',
                   fontWeight: 700,
                   letterSpacing: '0.15em',
-                  color: 'rgba(255, 107, 44, 0.4)',
+                  color: 'var(--color-accent-primary)',
                   marginTop: '0.15rem',
                 }}
               >
-                NS CODEX Node {IDENTITY.version}
+                NS CODEX Authority Node {IDENTITY.version}
               </p>
             </div>
           </div>
 
           <p
             style={{
-              fontSize: '0.8rem',
+              fontSize: '0.85rem',
               fontWeight: 300,
               lineHeight: 1.7,
-              color: 'var(--color-text-tertiary)',
-              marginBottom: '1rem',
+              color: 'var(--color-text-secondary)',
+              marginBottom: '1.25rem',
             }}
           >
-            Global systems architect and ICSE-trained engineer from India.
-            Specialized in AI automation, crypto investment, and providing free
-            digital education worldwide.
+            Student, builder, and developer from West Bengal, India. Engineering software systems, intelligent automation pipelines, and sharing free programming education worldwide.
           </p>
 
           <div
@@ -96,20 +92,17 @@ export default function Footer() {
               gap: '0.5rem',
             }}
           >
-            <MapPin
-              size={12}
-              style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }}
-            />
+            <MapPin size={13} style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }} />
             <span
               className="font-mono"
               style={{
-                fontSize: '0.6rem',
+                fontSize: '0.625rem',
                 fontWeight: 700,
                 letterSpacing: '0.1em',
-                color: 'var(--color-text-muted)',
+                color: 'var(--color-text-tertiary)',
               }}
             >
-              {IDENTITY.coordinates}
+              {IDENTITY.coordinates} (West Bengal, India)
             </span>
           </div>
         </div>
@@ -120,45 +113,44 @@ export default function Footer() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '2rem',
+            gap: '2.5rem',
           }}
         >
-          {/* Navigation */}
+          {/* Navigation Links */}
           <div>
             <h3
               className="font-display"
               style={{
-                fontSize: '0.6rem',
+                fontSize: '0.65rem',
                 fontWeight: 800,
-                letterSpacing: '0.4em',
+                letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-primary)',
-                marginBottom: '1rem',
+                marginBottom: '1.25rem',
               }}
             >
-              Navigation
+              System Nodes
             </h3>
-            <nav aria-label="Footer navigation" style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <nav
+              aria-label="Footer navigation"
+              style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}
+            >
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="font-mono"
                   style={{
-                    fontSize: '0.6rem',
+                    fontSize: '0.625rem',
                     fontWeight: 700,
-                    letterSpacing: '0.2em',
+                    letterSpacing: '0.15em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-text-muted)',
+                    color: 'var(--color-text-tertiary)',
                     textDecoration: 'none',
-                    transition: 'color var(--transition-base)',
+                    transition: 'color var(--transition-fast)',
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = 'var(--color-text-primary)')
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = 'var(--color-text-muted)')
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-tertiary)')}
                 >
                   {link.label}
                 </a>
@@ -166,22 +158,25 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Connect */}
+          {/* Social Network Links */}
           <div>
             <h3
               className="font-display"
               style={{
-                fontSize: '0.6rem',
+                fontSize: '0.65rem',
                 fontWeight: 800,
-                letterSpacing: '0.4em',
+                letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-primary)',
-                marginBottom: '1rem',
+                marginBottom: '1.25rem',
               }}
             >
-              Connect
+              Network
             </h3>
-            <nav aria-label="Social links" style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <nav
+              aria-label="Footer social links"
+              style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}
+            >
               {SOCIALS.map((s) => (
                 <a
                   key={s.name}
@@ -190,20 +185,16 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="font-mono"
                   style={{
-                    fontSize: '0.6rem',
+                    fontSize: '0.625rem',
                     fontWeight: 700,
-                    letterSpacing: '0.2em',
+                    letterSpacing: '0.15em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-text-muted)',
+                    color: 'var(--color-text-tertiary)',
                     textDecoration: 'none',
-                    transition: 'color var(--transition-base)',
+                    transition: 'color var(--transition-fast)',
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = 'var(--color-text-primary)')
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = 'var(--color-text-muted)')
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-tertiary)')}
                 >
                   {s.name}
                 </a>
@@ -214,46 +205,42 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-mono"
                 style={{
-                  fontSize: '0.6rem',
+                  fontSize: '0.625rem',
                   fontWeight: 700,
-                  letterSpacing: '0.2em',
+                  letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   color: 'var(--color-accent-primary)',
                   textDecoration: 'none',
-                  transition: 'color var(--transition-base)',
+                  transition: 'color var(--transition-fast)',
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = 'var(--color-text-primary)')
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = 'var(--color-accent-primary)')
-                }
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-accent-primary)')}
               >
-                WhatsApp
+                WhatsApp Sync
               </a>
             </nav>
           </div>
 
-          {/* Status */}
+          {/* Status Column */}
           <div className="footer-status-col" style={{ gridColumn: 'span 2' }}>
             <h3
               className="font-display"
               style={{
-                fontSize: '0.6rem',
+                fontSize: '0.65rem',
                 fontWeight: 800,
-                letterSpacing: '0.4em',
+                letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-primary)',
-                marginBottom: '1rem',
+                marginBottom: '1.25rem',
               }}
             >
-              Status
+              Node Status
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {[
-                { label: 'Operational', color: 'var(--color-accent-secondary)' },
-                { label: 'Education_Live', color: 'var(--color-accent-primary)' },
-                { label: 'ICSE_Node', color: 'var(--color-accent-tertiary)' },
+                { label: 'Operational', color: 'var(--color-status-active)' },
+                { label: 'Free Education Live', color: 'var(--color-accent-primary)' },
+                { label: 'ICSE Foundation Node', color: 'var(--color-accent-secondary)' },
               ].map((status) => (
                 <div
                   key={status.label}
@@ -261,21 +248,21 @@ export default function Footer() {
                 >
                   <div
                     style={{
-                      width: '0.4rem',
-                      height: '0.4rem',
+                      width: '0.45rem',
+                      height: '0.45rem',
                       borderRadius: '50%',
                       background: status.color,
-                      boxShadow: `0 0 6px ${status.color}80`,
+                      boxShadow: `0 0 8px ${status.color}80`,
                     }}
                   />
                   <span
                     className="font-mono"
                     style={{
-                      fontSize: '0.6rem',
+                      fontSize: '0.625rem',
                       fontWeight: 700,
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
-                      color: 'var(--color-text-muted)',
+                      color: 'var(--color-text-secondary)',
                     }}
                   >
                     {status.label}
@@ -295,29 +282,30 @@ export default function Footer() {
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: '1rem',
-          paddingTop: '1.5rem',
-          paddingBottom: '1.5rem',
-          borderTop: '1px solid var(--glass-border)',
+          paddingTop: '1.75rem',
+          paddingBottom: '2rem',
+          borderTop: '1px solid var(--glass-l1-border)',
         }}
       >
         <span
           className="font-mono"
           style={{
-            fontSize: '0.55rem',
+            fontSize: '0.6rem',
             fontWeight: 700,
-            letterSpacing: '0.4em',
+            letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color: 'var(--color-text-muted)',
           }}
         >
           © {currentYear} NABORAJ SARKAR
         </span>
+
         <span
           className="font-mono footer-mission-text"
           style={{
-            fontSize: '0.55rem',
+            fontSize: '0.6rem',
             fontWeight: 700,
-            letterSpacing: '0.4em',
+            letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color: 'var(--color-text-muted)',
             display: 'none',
@@ -325,35 +313,32 @@ export default function Footer() {
         >
           FREE_EDUCATION_MISSION_INDIA
         </span>
+
         <a
-          href="https://github.com/naborajs"
+          href={IDENTITY.repo}
           target="_blank"
           rel="noopener noreferrer"
           className="font-mono"
           style={{
-            fontSize: '0.55rem',
+            fontSize: '0.6rem',
             fontWeight: 700,
-            letterSpacing: '0.2em',
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            color: 'rgba(255, 107, 44, 0.3)',
+            color: 'rgba(255, 107, 44, 0.5)',
             textDecoration: 'none',
-            transition: 'color var(--transition-base)',
+            transition: 'color var(--transition-fast)',
           }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.color = 'var(--color-accent-primary)')
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.color = 'rgba(255, 107, 44, 0.3)')
-          }
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent-primary)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255, 107, 44, 0.5)')}
         >
           Architectural_Source
         </a>
       </div>
 
       <style>{`
-        @media (min-width: 768px) {
+        @media (min-width: 800px) {
           .footer-grid {
-            grid-template-columns: 1fr 2fr !important;
+            grid-template-columns: 1.25fr 2fr !important;
           }
           .footer-links-grid {
             grid-template-columns: repeat(3, 1fr) !important;

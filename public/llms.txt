@@ -1,72 +1,120 @@
 # Naboraj Sarkar – Official Knowledge Base & System Manifest
-> Brand & Node: NS CODEX (v12.6)
-> Primary Website: https://naborajsarkar-me.vercel.app/
-> Contact Email: nishant.ns.business@gmail.com
+> Brand & Personal System: NS CODEX (v12.6)
+> Canonical Website: https://naborajsarkar-me.vercel.app/
+> Primary Email: nishant.ns.business@gmail.com
 > Phone / WhatsApp: +91 89006 53250
 > Location: West Bengal, India (22.98° N, 87.85° E)
+> GitHub: https://github.com/naborajs
 
 ## Executive Summary
-Naboraj Sarkar is a Systems Architect, AI Engineer, and ICSE-trained tech innovator operating out of India under the personal brand **NS CODEX**. His primary mission is empowering India and global learners with **free, high-quality coding education** while building zero-latency enterprise systems, intelligent automation agents, 3D spatial web applications, and participating in crypto asset management.
+Naboraj Sarkar is a student, builder, and developer operating from West Bengal, India under the personal brand and digital system **NS CODEX**. His primary mission is empowering Indian and global learners through **free, high-quality coding education** while engineering intelligent bot automation pipelines, event-driven software backends, and 3D spatial web interfaces.
 
 ---
 
-## Key Identity & Credentials
+## Canonical Entity Identity
 - **Full Name**: Naboraj Sarkar
-- **Brand / Alias**: NS Codex
-- **Education**: ICSE Board (Indian Certificate of Secondary Education) with Computer Science Specialization
-- **Primary Roles**: Systems Architect, AI Engineer, Educator, Full-Stack Developer, Crypto Investor
-- **Core Mission**: Free Education for All (Bridging India's digital divide through accessible programming knowledge)
+- **Given Name**: Naboraj
+- **Family Name**: Sarkar
+- **Initials / Brand**: NS CODEX
+- **Role**: Student, Builder & Developer
+- **Education**: ICSE Board (Indian Certificate of Secondary Education) with Computer Science & Java specialization
+- **Base of Operations**: West Bengal, India (Coordinates: 22.98° N, 87.85° E)
+- **Active Since**: 2021
+- **Core Mission**: Democratizing high-quality technical education across India and building useful open software systems.
 
 ---
 
-## Technical Capabilities & Protocol Registry
-
-### 1. Enterprise Logic (Systems Architecture)
-- **Focus**: Architecting zero-latency backends for global distribution.
-- **Tech Stack**: Node.js, Kubernetes (K8s), Redis, Docker, Distributed Databases.
-- **Value**: Reliable, high-throughput foundation for enterprise applications.
-
-### 2. Intelligent Bots (AI Automation)
-- **Focus**: Neuro-mimetic automation for Telegram, WhatsApp, and CRM infrastructure.
-- **Tech Stack**: Python, OpenAI API, Webhooks, Node-RED, Custom LLM Pipelines.
-- **Value**: Scalable business automation, inventory sync, and multi-channel customer service agents.
-
-### 3. Spatial Experiences (3D & Interactive Web)
-- **Focus**: Immersive web portals using physics-driven liquid glass and 3D graphics.
-- **Tech Stack**: Three.js, React.js, WebGL Shaders, Framer Motion, Tailwind CSS.
-- **Value**: High-converting, cinematic digital brand presence.
-
-### 4. Global Pipeline (Integration & Automation)
-- **Focus**: Unifying marketing tools, payment processing, and logistics systems.
-- **Tech Stack**: Node-RED, Stripe API, REST/GraphQL APIs, CRM Systems.
-- **Value**: Eliminates manual friction for agencies and creator businesses.
-
-### 5. Security Forge (Cybersecurity & Infrastructure)
-- **Focus**: Hardening web assets, end-to-end encryption, network edge firewalls.
-- **Tech Stack**: TLS/SSL, Cybersecurity Best Practices, Linux Infrastructure.
-- **Value**: Complete data integrity and threat mitigation.
-
-### 6. Mobile Synapse (Mobile Application Development)
-- **Focus**: Native-feel mobile apps with fluid 60fps interaction and offline storage.
-- **Tech Stack**: Flutter, Swift, Kotlin, React Native.
-- **Value**: Portable, high-speed mobile software.
+## The NS CODEX Concept
+- **NS**: Personal Identity / Initials representing Naboraj Sarkar.
+- **CODEX**: An evolving personal digital operating system and archive of:
+  - **Projects**: Deployed software applications, bots, and tools.
+  - **Systems**: Backend architectures, database configurations, and network security.
+  - **Knowledge**: Open technical documentation, tutorials, and educational roadmaps.
+  - **Experiments**: WebGL shaders, 3D math, and autonomous AI workflows.
+  - **Ideas**: Explorations in distributed tools, privacy, and community empowerment.
 
 ---
 
-## Historical Timeline & Growth
-- **2021 – The Awakening**: Initial entry into low-level systems programming, terminal logic, and algorithmic foundation.
-- **2022 – ICSE & Foundations**: Graduated ICSE board with computer science focus, developing core automation scripts.
-- **2023 – NS CODEX Genesis**: Designed the signature liquid-glass aesthetic, officially launched NS CODEX, and deployed AI agents.
-- **2024–2026 – Crypto & Free Education**: Expanded crypto investment strategies while executing the flagship mission to deliver free coding education to students across India.
+## Selected Systems & Projects
+
+### 1. NS CODEX Authority Node (PRJ-01)
+- **Category**: Web & 3D
+- **Status**: ACTIVE
+- **Description**: High-performance personal digital system and 3D knowledge terminal engineered with React 19, Framer Motion, and WebGL shaders. Full JSON-LD entity integration and command palette navigation.
+- **Stack**: React 19, TypeScript, Framer Motion, Tailwind CSS, Vite, Schema.org
+- **Repository**: https://github.com/naborajs/personal-3d-portfolio-template
+- **Live URL**: https://naborajsarkar-me.vercel.app/
+
+### 2. Neuro-Mimetic Bot Suite (PRJ-02)
+- **Category**: AI & Automation
+- **Status**: OPEN SOURCE
+- **Description**: Multi-channel intelligent automation agents for Telegram and WhatsApp using OpenAI pipelines, Python webhooks, and CRM data sync.
+- **Stack**: Python, OpenAI API, Telegram Bot API, WhatsApp Business API, Node.js, Webhooks
+
+### 3. Spatial Experience Engine (PRJ-03)
+- **Category**: Web & 3D
+- **Status**: ACTIVE
+- **Description**: Lightweight WebGL and Three.js visual experiments exploring real-time lighting, interactive particle systems, and liquid glass refraction on browser canvas.
+- **Stack**: Three.js, WebGL, GLSL Shaders, React, Canvas API
+
+### 4. Open Education Codex for India (PRJ-04)
+- **Category**: Education
+- **Status**: ACTIVE
+- **Description**: Non-profit curriculum initiative guiding students across India from ICSE computer science fundamentals to modern full-stack web and AI engineering through free guides and YouTube tutorials.
+- **Stack**: Markdown, Open Education, Python, JavaScript, Git
+- **Channel**: https://youtube.com/@Nishant_sarkar
+
+### 5. Global Pipeline & Webhook Bridge (PRJ-05)
+- **Category**: Integration
+- **Status**: OPEN SOURCE
+- **Description**: Event routing middleware connecting payment gateways (Stripe), Node-RED flows, database webhooks, and analytics dashboards with exponential backoff retries.
+- **Stack**: Node.js, Express, Redis, Stripe API, Node-RED, REST APIs
+
+### 6. Security Forge Protocol (PRJ-06)
+- **Category**: Systems
+- **Status**: EXPERIMENTAL
+- **Description**: Edge security hardening, TLS/SSL blueprints, and authentication templates for modern web apps.
+- **Stack**: Cybersecurity, TLS/SSL, Node.js, Nginx, Docker
 
 ---
 
-## Official Links & Social Profiles
-- **Website**: https://naborajsarkar-me.vercel.app/
+## Technical Capability Protocols
+
+1. **Enterprise Logic (SYS-01)**: Backend architecture with Node.js, Redis, and distributed databases.
+2. **Intelligent Bots (AUT-02)**: AI automation for Telegram and WhatsApp using Python and OpenAI.
+3. **Spatial Experiences (INT-03)**: 3D web math, WebGL shaders, and liquid glass UI.
+4. **Global Pipeline (AUT-04)**: Unified event routing with Node-RED, Stripe, and APIs.
+5. **Security Forge (SYS-05)**: Cybersecurity, TLS encryption, and firewall hardening.
+6. **Mobile Synapse (INT-06)**: Mobile apps with Flutter, Swift, and Kotlin.
+
+---
+
+## Technical Documentation & Knowledge Archive
+
+1. **Architecting Resilient Bot Workflows with Telegram & Webhooks**: Ingestion pipelines, queue architecture with Redis, and timeout prevention.
+2. **Crafting High-Performance Smoked Glass & 3D Motion in React**: 3-tier glass hierarchy, GPU hardware transforms with Framer Motion, and reduced-motion accessibility.
+3. **From ICSE Computer Science to Modern Full-Stack & AI Systems**: Bridging ICSE Java fundamentals into modern asynchronous web and AI engineering.
+4. **Zero-Latency API Orchestration with Redis & Node.js**: Cache-aside architectures and sub-millisecond session caching.
+
+---
+
+## Temporal Timeline
+
+- **2021 (The Awakening)**: Initial entry into low-level systems programming, terminal logic, and algorithmic foundation.
+- **2022 (ICSE & Foundations)**: Graduated ICSE board with computer science focus, developing core automation scripts.
+- **2023 (NS CODEX Genesis)**: Designed signature dark-modern aesthetic, launched NS CODEX, and deployed conversational bots.
+- **2024 (Crypto & Education)**: Expanded crypto market analysis while executing free education mission across India.
+- **2025–2026 (Current Node)**: Authority Node v12.6, bot automation suites, 3D WebGL engine, and knowledge archive.
+- **Next Node (Direction)**: Autonomous multi-agent swarms, decentralized architectures, and nationwide free open coding guides.
+
+---
+
+## Official Verified Endpoints
+- **Primary Website**: https://naborajsarkar-me.vercel.app/
 - **GitHub**: https://github.com/naborajs
+- **YouTube**: https://youtube.com/@Nishant_sarkar
 - **LinkedIn**: https://linkedin.com/in/naboraj-sarkar
 - **Instagram**: https://instagram.com/naborajs
-- **X / Twitter**: https://x.com/NSGAMMING699
-- **YouTube**: https://youtube.com/@Nishant_sarkar
+- **X (Twitter)**: https://x.com/NSGAMMING699
 - **Direct WhatsApp**: https://wa.me/918900653250
 - **Direct Email**: nishant.ns.business@gmail.com

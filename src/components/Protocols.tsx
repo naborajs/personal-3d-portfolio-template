@@ -8,8 +8,14 @@ import {
   Globe,
   Smartphone,
   Zap,
+  ArrowRight,
 } from 'lucide-react';
-import { PROTOCOLS, CATEGORIES, type Protocol, type Category } from '../config';
+import { PROTOCOLS, PROTOCOL_CATEGORIES, type Protocol, type ProtocolCategory } from '../data/protocols';
+import { PROJECTS, type Project } from '../data/projects';
+
+interface ProtocolsProps {
+  onSelectProject?: (project: Project) => void;
+}
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
   Database,
@@ -20,18 +26,27 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: Reac
   Smartphone,
 };
 
-// ─── Protocol Card (Liquid Glass) ───────────────────────────
-function ProtocolCard({ item }: { item: Protocol }) {
+function ProtocolCard({
+  item,
+  onSelectProject,
+}: {
+  item: Protocol;
+  onSelectProject?: (project: Project) => void;
+}) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-150, 150], [4, -4]);
   const rotateY = useTransform(mouseX, [-150, 150], [-4, 4]);
 
   const IconComp = ICON_MAP[item.iconName];
+  const relatedProject = item.relatedProjectId
+    ? PROJECTS.find((p) => p.id === item.relatedProjectId)
+    : null;
 
   return (
     <motion.article
       onMouseMove={(e) => {
+        if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
         mouseX.set(e.clientX - (rect.left + rect.width / 2));
         mouseY.set(e.clientY - (rect.top + rect.height / 2));
@@ -68,7 +83,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
           style={{
             padding: '0.75rem',
             borderRadius: 'var(--border-radius-sm)',
-            background: `${item.iconColor}12`,
+            background: `${item.iconColor}14`,
             color: item.iconColor,
             transition: 'background 0.4s ease',
           }}
@@ -78,7 +93,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
         <span
           className="font-mono"
           style={{
-            fontSize: '0.55rem',
+            fontSize: '0.6rem',
             fontWeight: 700,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
@@ -93,7 +108,7 @@ function ProtocolCard({ item }: { item: Protocol }) {
       <h3
         className="font-display"
         style={{
-          fontSize: '1.2rem',
+          fontSize: '1.25rem',
           fontWeight: 800,
           textTransform: 'uppercase',
           letterSpacing: '0.02em',
@@ -118,22 +133,22 @@ function ProtocolCard({ item }: { item: Protocol }) {
         {item.description}
       </p>
 
-      {/* Footer: purpose + tags */}
+      {/* Footer: purpose + tags + linked project */}
       <div
         style={{
           paddingTop: '1.25rem',
-          borderTop: '1px solid var(--glass-border)',
+          borderTop: '1px solid var(--glass-l1-border)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '0.75rem',
+          gap: '0.85rem',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Activity size={11} style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }} />
+          <Activity size={12} style={{ color: 'var(--color-accent-primary)', flexShrink: 0 }} />
           <p
             className="font-display"
             style={{
-              fontSize: '0.6rem',
+              fontSize: '0.625rem',
               fontWeight: 700,
               color: 'var(--color-text-tertiary)',
               textTransform: 'uppercase',
@@ -143,17 +158,18 @@ function ProtocolCard({ item }: { item: Protocol }) {
             {item.purpose}
           </p>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
           {item.tags.map((tag) => (
             <span
               key={tag}
               className="font-mono"
               style={{
                 fontSize: '0.55rem',
-                padding: '0.25rem 0.6rem',
-                borderRadius: 'var(--border-radius-sm)',
+                padding: '0.2rem 0.55rem',
+                borderRadius: 'var(--border-radius-xs)',
                 background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
                 color: 'var(--color-text-tertiary)',
                 letterSpacing: '0.05em',
               }}
@@ -162,14 +178,38 @@ function ProtocolCard({ item }: { item: Protocol }) {
             </span>
           ))}
         </div>
+
+        {relatedProject && onSelectProject && (
+          <button
+            onClick={() => onSelectProject(relatedProject)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--color-accent-primary)',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              paddingTop: '0.25rem',
+              textAlign: 'left',
+            }}
+          >
+            <span>Linked System: {relatedProject.title}</span>
+            <ArrowRight size={12} />
+          </button>
+        )}
       </div>
     </motion.article>
   );
 }
 
-// ─── Protocols Section ──────────────────────────────────────
-export default function Protocols() {
-  const [activeFilter, setActiveFilter] = useState<Category>('All');
+export default function Protocols({ onSelectProject }: ProtocolsProps) {
+  const [activeFilter, setActiveFilter] = useState<ProtocolCategory>('All');
 
   const filtered = useMemo(
     () =>
@@ -192,7 +232,7 @@ export default function Protocols() {
           display: 'flex',
           flexDirection: 'column',
           gap: '1.5rem',
-          marginBottom: '3rem',
+          marginBottom: '3.5rem',
         }}
       >
         <motion.div
@@ -208,18 +248,31 @@ export default function Protocols() {
             id="protocols-heading"
             className="font-display"
             style={{
-              fontSize: 'clamp(3rem, 8vw, 6rem)',
+              fontSize: 'clamp(2.75rem, 7vw, 5.5rem)',
               fontWeight: 900,
               textTransform: 'uppercase',
               letterSpacing: '-0.03em',
               lineHeight: 0.95,
             }}
           >
-            Protocols
+            Protocols <span className="text-gradient-flow">Registry</span>
           </h2>
+          <p
+            className="font-display"
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.35rem)',
+              fontWeight: 300,
+              color: 'var(--color-text-secondary)',
+              maxWidth: '44rem',
+              lineHeight: 1.5,
+              marginTop: '0.75rem',
+            }}
+          >
+            Engineered architectural modules governing systems, intelligent bots, spatial interfaces, and security hardening.
+          </p>
         </motion.div>
 
-        {/* Filter Pills – Liquid Glass */}
+        {/* Filter Pills */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +287,7 @@ export default function Protocols() {
             alignSelf: 'flex-start',
           }}
         >
-          {CATEGORIES.map((cat) => (
+          {PROTOCOL_CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
@@ -245,33 +298,20 @@ export default function Protocols() {
                 borderRadius: 'var(--border-radius-sm)',
                 border: 'none',
                 cursor: 'pointer',
-                fontSize: '0.6rem',
+                fontSize: '0.625rem',
                 fontWeight: 700,
-                letterSpacing: '0.2em',
+                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                transition: 'all var(--transition-base)',
+                transition: 'all var(--transition-fast)',
                 background:
                   activeFilter === cat
                     ? 'var(--color-accent-primary)'
                     : 'transparent',
-                color:
-                  activeFilter === cat
-                    ? '#fff'
-                    : 'var(--color-text-tertiary)',
+                color: activeFilter === cat ? '#fff' : 'var(--color-text-tertiary)',
                 boxShadow:
                   activeFilter === cat
-                    ? '0 4px 20px rgba(255, 107, 44, 0.3)'
+                    ? '0 4px 16px rgba(255, 107, 44, 0.3)'
                     : 'none',
-              }}
-              onMouseEnter={(e) => {
-                if (activeFilter !== cat) {
-                  e.currentTarget.style.color = 'var(--color-text-primary)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (activeFilter !== cat) {
-                  e.currentTarget.style.color = 'var(--color-text-tertiary)';
-                }
               }}
             >
               {cat}
@@ -294,12 +334,12 @@ export default function Protocols() {
             <motion.div
               layout
               key={item.id}
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <ProtocolCard item={item} />
+              <ProtocolCard item={item} onSelectProject={onSelectProject} />
             </motion.div>
           ))}
         </AnimatePresence>
@@ -316,7 +356,7 @@ export default function Protocols() {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1100px) {
           .protocols-grid {
             grid-template-columns: repeat(3, 1fr) !important;
           }
